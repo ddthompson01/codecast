@@ -42,13 +42,13 @@ In today's fast-paced technology landscape, the demand for interactive and real-
    ```bash
    git clone https://github.com/your-username/CodeCast.git
 2. Install dependencies:
-cd CodeCast
+cd code-cast-project
 npm install
 
 3. Set up your environment variables.
 
 4. Run the development server:
-npm start
+npm run dev
 
 5. Visit http://localhost:3000 in your browser.
 
