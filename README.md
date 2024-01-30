@@ -52,7 +52,7 @@ npm start
 
 5. Visit http://localhost:3000 in your browser.
 
-Usage
+## Usage
 Register an account on CodeCast.
 Explore different programming categories and subcategories.
 Join live coding sessions or host your own.
