@@ -27,13 +27,13 @@ In today's fast-paced technology landscape, the demand for interactive and real-
 
 ## Technologies Used
 
-- Node.js
-- React
-- Prisma
-- MySQL
-- Clerk for Authentication/User Management
-- LiveKit.io for Live Streaming API
-- Ngrok for API-first Ingress-as-a-Service
+- Next.js (Framework)
+- Prisma (ORM for data modeling and migrations)
+- MySQL (Database)
+- Clerk API (Authentication/User Management)
+- LiveKit.io (Live Streaming API)
+- Ngrok - Ingress-as-a-Service (For Development Only / Testing Webhooks)
+- Vercel (For Deployment)
 
 ## Getting Started
 
