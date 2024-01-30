@@ -1,2 +1,2 @@
-# codecast
+# CodeCast
 senior project
