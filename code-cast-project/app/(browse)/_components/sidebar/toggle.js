@@ -1,8 +1,8 @@
 "use client"
-import SideBarMessage from "/components/SideBarMessage"
-import {Button} from "/components/ui/button"
 import { ArrowLeftFromLine, ArrowRightFromLine } from "lucide-react";
-import {useSidebar} from "./use-sidebar"
+import { useSidebar } from "./use-sidebar";
+import SideBarMessage from "/components/SideBarMessage";
+import { Button } from "/components/ui/button";
 
 
 function Toggle() {

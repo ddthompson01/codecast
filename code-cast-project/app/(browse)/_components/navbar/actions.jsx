@@ -1,8 +1,8 @@
 import { SignInButton, UserButton, currentUser } from "@clerk/nextjs";
 
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { Clapperboard } from "lucide-react";
+import Link from "next/link";
 
 export const Actions = async () => {
     const user = await currentUser();
@@ -11,7 +11,7 @@ export const Actions = async () => {
             {!user && (
                 <SignInButton>
                     <Button size="sm" variant="primary">
-                        Login
+                        Log in/Sign Up
                     </Button>
                 </SignInButton>
             )}
