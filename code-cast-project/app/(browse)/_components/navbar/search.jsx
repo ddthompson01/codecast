@@ -38,7 +38,7 @@ export const Search = () => {
                 onChange={(e) => setValue(e.target.value)}
                 placeholder="Search"
                 className="h-10 rounded-full focus-visible:ring-0 
-                focus-visible:ring-transparent focus-visible:ring-offset-0 bg-white text-muted-foreground border border-white flex-1"
+                focus-visible:ring-transparent focus-visible:ring-offset-0 bg-white text-black border border-white flex-1"
             />
             {value && (
                 <X 
