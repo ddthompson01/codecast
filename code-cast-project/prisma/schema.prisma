@@ -9,15 +9,42 @@ datasource db {
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["fullTextIndex", "fullTextSearch"]
 }
 
 model User {
-  id String @id @default(uuid())
-  username String @unique
-  imageUrl String @db.Text
-  externalUserId String @unique
-  bio String? @db.Text
+  id             String   @id @default(uuid())
+  username       String   @unique
+  imageUrl       String   @db.Text
+  externalUserId String   @unique
+  bio            String?  @db.Text
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  stream         Stream?
+}
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}  
+model Stream {
+  id            String    @id @default(uuid())
+  name          String    @unique
+  thumbnailUrl  String?   @db.Text
+  categoryId    String?
+  subcategory   String?
+  isLive        Boolean   @default(false)
+  isChatEnabled Boolean   @default(true)
+  userId        String    @unique
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  category      Category? @relation(fields: [categoryId], references: [id])
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([categoryId])
+  @@fulltext([name])
+}
+
+model Category {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String?
+  streams     Stream[]
+}
