@@ -1,5 +1,7 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextIndex", "fullTextSearch"]
+}
 
 datasource db {
   provider     = "mysql"
@@ -7,17 +9,39 @@ datasource db {
   relationMode = "prisma"
 }
 
-generator client {
-  provider = "prisma-client-js"
+model User {
+  id             String   @id @default(uuid())
+  username       String   @unique
+  imageUrl       String   @db.Text
+  externalUserId String   @unique
+  bio            String?  @db.Text
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  stream         Stream?
 }
 
-model User {
-  id String @id @default(uuid())
-  username String @unique
-  imageUrl String @db.Text
-  externalUserId String @unique
-  bio String? @db.Text
+model Stream {
+  id            String    @id @default(uuid())
+  name          String    @unique
+  thumbnailUrl  String?   @db.Text
+  categoryId    String?
+  subcategory   String?
+  isLive        Boolean   @default(false)
+  isChatEnabled Boolean   @default(true)
+  userId        String    @unique
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  category      Category? @relation(fields: [categoryId], references: [id])
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}  
+  @@index([userId])
+  @@index([categoryId])
+  @@fulltext([name])
+}
+
+model Category {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String?
+  streams     Stream[]
+}

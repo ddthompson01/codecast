@@ -34,7 +34,7 @@ const Home = () => {
   ];
 
   return (
-<div className="container mx-auto px-4 py-8" style={{ backgroundColor: '#0D1520' }}>
+<div className="flex flex-col min-h-screen w-full px-4 py-8" style={{ backgroundColor: '#0D1520' }}>
       <header className="flex justify-between items-center mb-8">
         <UserButton /><UserButton></UserButton>
       </header>
