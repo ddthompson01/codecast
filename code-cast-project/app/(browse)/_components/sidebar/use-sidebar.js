@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
  export const useSidebar = create((set) => ({
-   collapsed: false,
+   collapsed: true,
    onExpand: () => set(() => ({ collapsed: false })),
    onCollapse: () => set(() => ({ collapsed: true })),
  }));
