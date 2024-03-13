@@ -7,6 +7,8 @@ export default authMiddleware({
   publicRoutes: [
     "/",
     "/api/webhooks(.*)",
+    "/search",
+    "/:username"
   ]
 });
  
