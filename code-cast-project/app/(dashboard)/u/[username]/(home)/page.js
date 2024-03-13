@@ -2,19 +2,25 @@
 
 import { useState } from 'react';
 import LiveKitStream from '@/components/livekitStream';
+import { useUser } from '@clerk/nextjs';
 
 function DashboardPage() {
     const [isLive, setIsLive] = useState(false);
+    const {user} = useUser();
 
     const toggleLiveStatus = async () => {
         const newIsLiveStatus = !isLive;
         setIsLive(newIsLiveStatus);
     };
 
+    if (!user) {
+        return;
+    }
+
     return (
         <div>
             <LiveKitStream
-                room="quickstart-room"
+                room={user?.username + "'s stream"}
                 isLive={isLive}
                 style={{ width: '800px', height: '450px' }} // Adjust dimensions as needed
             />

@@ -1,4 +1,4 @@
-const { db } = require("@/lib/db");
+import { db }from "@/lib/db";
 
 const getUserByUsername = async (username) => {
   const user = await db.user.findUnique({
@@ -22,7 +22,7 @@ const getUserByUsername = async (username) => {
       },
     },
   });
-
+  
   return user;
 };
 

@@ -17,13 +17,15 @@ export async function POST(req) {
   }
 
   const event = await receiver.receive(body, authorization);
-
+  console.log(event);
 
   try {
     if (event.event === "participant_joined") {
+
+      console.log(`${event.participant.identity} joined ${event.room.name}`);
       await db.stream.update({
         where: {
-          name: `${event.participant.identity}'s stream`,
+          name: event.room.name,
         },
         data: {
           isLive: true,
@@ -32,12 +34,15 @@ export async function POST(req) {
     }
 
     if (event.event === "participant_left") {
-        
-// Check if there are no more participants in the room
-    if (event.room.numParticipants === 0) {
+
+    console.log(`${event.participant.identity} left room ${event.room.name}`);
+    
+    const leftParticipant = `${event.participant.identity}'s stream`;
+// Check if participant that left is owner of room
+    if (leftParticipant === event.room.name) {
       await db.stream.update({
         where: {
-          name: `${event.participant.identity}'s stream`,
+          name: event.room.name,
         },
         data: {
           isLive: false,

@@ -11,10 +11,8 @@ export default function LiveKitStream({ room, style, isLive }) {
   const [token, setToken] = useState("");
 
   useEffect(() => {
-    if (!isSignedIn || !isLive) return;
-
     const username = user?.username || "quickstart-user";
-    
+   
     (async () => {
       try {
         const resp = await fetch(`/api/livekit/get-participant-token?room=${room}&username=${username}`);
@@ -24,7 +22,7 @@ export default function LiveKitStream({ room, style, isLive }) {
         console.error(e);
       }
     })();
-  }, [isSignedIn, user?.firstName, room, isLive]);
+  }, [isSignedIn, user?.username, room, isLive]);
 
   if (!isLive) {
     return (
@@ -34,6 +32,7 @@ export default function LiveKitStream({ room, style, isLive }) {
     );
   }
 
+  
   if (token === "") {
     return <div>Getting token...</div>;
   }
