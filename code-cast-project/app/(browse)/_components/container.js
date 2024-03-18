@@ -16,7 +16,7 @@ function Container({ children }) {
     }
   }, [isMobile, onCollapse, onExpand]);
 
-  const marginLeftClass = collapsed ? 'ml-[70px]' : 'ml-[70px] lg:ml-60';
+  const marginLeftClass = collapsed ? 'ml-[70px]' : 'ml-[70px] lg:ml-[280px]';
 
   return <div className={`flex-1 ${marginLeftClass}`}>{children}</div>;
 }

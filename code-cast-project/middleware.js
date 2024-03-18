@@ -8,7 +8,8 @@ export default authMiddleware({
     "/",
     "/api/webhooks(.*)",
     "/search",
-    "/:username"
+    "/:username",
+    "/api/(.*)"
   ]
 });
  
