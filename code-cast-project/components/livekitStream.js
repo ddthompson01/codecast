@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useUser } from "@clerk/nextjs";
-import { LiveKitRoom, GridLayout, ParticipantTile, RoomAudioRenderer, ControlBar, useTracks, LayoutContextProvider, ConnectionState } from '@livekit/components-react';
+import { LiveKitRoom, GridLayout, ParticipantTile, RoomAudioRenderer, ControlBar, useTracks, LayoutContextProvider, ConnectionState, Chat } from '@livekit/components-react';
 import { Track } from 'livekit-client';
 import '@livekit/components-styles';
 
@@ -39,19 +39,24 @@ export default function LiveKitStream({ room, style, isLive }) {
 
   return (
     <LayoutContextProvider>
+      <div className='flex'>
       <LiveKitRoom
         video={true}
         audio={true}
         token={token}
         serverUrl={process.env.NEXT_PUBLIC_LIVEKIT_WS_URL}
         data-lk-theme="default"
-        style={{ ...style }}
+        style={{ ...style, display: 'flex', flex: 1 }}
       >
-        <MyVideoConference />
-        <RoomAudioRenderer />
-        <ConnectionState />
-        <ControlBar/>
+        <div className="flex-grow">
+          <MyVideoConference />
+          <RoomAudioRenderer />
+          <ConnectionState />
+          <ControlBar />
+        </div>
+        <Chat className="flex-none w-1/4 min-w-[300px] max-w-[400px]" />
       </LiveKitRoom>
+      </div>
     </LayoutContextProvider>
   );
 }
