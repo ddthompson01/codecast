@@ -44,6 +44,12 @@ function DashboardPage() {
       });
     }
 
+    // have users select category before going live
+    else if (!selectedCategory) {
+      alert('Select a category!');
+      return;
+    }
+
     setIsLive(newIsLiveStatus);
   };
 
@@ -78,14 +84,13 @@ function DashboardPage() {
           </DropdownMenu>
         )}
         
-        {!isLive && (
+
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             onClick={toggleLiveStatus}
           >
-            Go Live
+            {isLive ? 'End Live' : 'Go Live'}
           </button>
-        )}
       </div>
     </div>
   );

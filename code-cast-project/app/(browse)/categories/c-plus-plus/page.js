@@ -19,7 +19,7 @@ export default function CPlusPlusPage() {
     }, []);
 
     return (
-        <div>
+        <div className="ml-8 lg:ml-20">
             <h1 className="text-2xl font-semibold lg:text-4xl">C++ Streams</h1>
             {streams.length > 0 ? (
                 streams.map((stream) => (
