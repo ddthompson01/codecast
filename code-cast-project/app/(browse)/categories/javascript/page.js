@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link'; 
 
 export default function JavaScriptPage() {
     const [streams, setStreams] = useState([]);
@@ -16,20 +17,22 @@ export default function JavaScriptPage() {
     }, []);
 
     return (
-        <div className="ml-8 lg:ml-20">
-            <h1 className="text-2xl font-semibold lg:text-4xl">JavaScript Streams</h1>
-            {streams.length > 0 ? (
-                streams.map((stream) => (
-                    <div key={stream.id}>
-                        <Link href={`/${stream.user.username}`}>
-                            <h2>{stream.name}</h2>
-                        </Link>
-                        {/* Display other stream details here */}
-                    </div>
-                ))
-            ) : (
-                <p>No current streams under the JavaScript category.</p>
-            )}
+        <div className="bg-[#0D1520] min-h-screen flex flex-col items-center pt-16 text-white">
+            <h1 className="text-2xl font-semibold lg:text-4xl mb-8">JavaScript Streams</h1>
+            <div className="w-full max-w-4xl px-4">
+                {streams.length > 0 ? (
+                    streams.map((stream) => (
+                        <div key={stream.id} className="mb-4">
+                            <Link href={`/${stream.user.username}`}>
+                                <a className="text-lg font-medium hover:underline">{stream.name}</a>
+                            </Link>
+                            {}
+                        </div>
+                    ))
+                ) : (
+                    <p>No current streams under the JavaScript category.</p>
+                )}
+            </div>
         </div>
     );
 }
