@@ -1,4 +1,3 @@
-import Navigation from "./navigation";
 import Toggle from "./toggle";
 import CategoriesButton from "./categoriesButton";
 import HomepageButton from "./homepageButton";
@@ -11,7 +10,6 @@ function Sidebar() {
              <Toggle/>
              <HomepageButton/>
              <CategoriesButton/>
-             <Navigation/>
         </Wrapper>
     )
 }
