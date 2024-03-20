@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link'; 
 
 export default function JavaPage() {
     const [streams, setStreams] = useState([]);
@@ -9,7 +10,6 @@ export default function JavaPage() {
         async function fetchStreams() {
             const response = await fetch('/api/fetchStreams?categoryName=Java');
             const data = await response.json();
-            console.log(data);
             setStreams(data);
         }
 
@@ -17,20 +17,22 @@ export default function JavaPage() {
     }, []);
 
     return (
-        <div className="ml-8 lg:ml-20">
-            <h1 className="text-2xl font-semibold lg:text-4xl">Java Streams</h1>
-            {streams.length > 0 ? (
-                streams.map((stream) => (
-                    <div key={stream.id}>
-                        <Link href={`/${stream.user.username}`}>
-                            <h2>{stream.name}</h2>
-                        </Link>
-                        {/* Display other stream details here */}
-                    </div>
-                ))
-            ) : (
-                <p>No current streams under the Java category.</p>
-            )}
+        <div className="bg-[#0D1520] min-h-screen flex flex-col items-center pt-16 text-white">
+            <h1 className="text-2xl font-semibold lg:text-4xl mb-8">Java Streams</h1>
+            <div className="w-full max-w-4xl px-4">
+                {streams.length > 0 ? (
+                    streams.map((stream) => (
+                        <div key={stream.id} className="mb-4">
+                            <Link href={`/${stream.user.username}`}>
+                                <a className="text-lg font-medium hover:underline">{stream.name}</a>
+                            </Link>
+                            {}
+                        </div>
+                    ))
+                ) : (
+                    <p>No current streams under the Java category.</p>
+                )}
+            </div>
         </div>
     );
 }

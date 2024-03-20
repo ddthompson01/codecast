@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@clerk/clerk-js": "^4.70.5",
-    "@clerk/nextjs": "^4.29.5",
+    "@clerk/nextjs": "^4.29.9",
     "@coreui/react": "^4.11.1",
     "@livekit/components-react": "^2.0.3",
     "@livekit/components-styles": "^1.0.10",
