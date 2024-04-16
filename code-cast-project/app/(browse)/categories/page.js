@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import styles from './CategoriesPage.module.css'; // Import your CSS module
-
+import styles from './CategoriesPage.module.css'; 
 export default function CategoriesPage() {
   return (
     <div className={styles.container}>

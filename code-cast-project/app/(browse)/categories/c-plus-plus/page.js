@@ -1,10 +1,10 @@
 "use client"
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link'; 
 
 export default function CPlusPlusPage() {
     const [streams, setStreams] = useState([]);
-
     const categoryName = "C++";
     const encodedCategoryName = encodeURIComponent(categoryName);
 
@@ -19,20 +19,22 @@ export default function CPlusPlusPage() {
     }, []);
 
     return (
-        <div className="ml-8 lg:ml-20">
-            <h1 className="text-2xl font-semibold lg:text-4xl">C++ Streams</h1>
-            {streams.length > 0 ? (
-                streams.map((stream) => (
-                    <div key={stream.id}>
-                        <Link href={`/${stream.user.username}`}>
-                            <h2>{stream.name}</h2>
-                        </Link>
-                        {/* Display other stream details here */}
-                    </div>
-                ))
-            ) : (
-                <p>No current streams under the C++ category.</p>
-            )}
+        <div className="bg-[#0D1520] min-h-screen flex flex-col items-center pt-16 text-white">
+            <h1 className="text-2xl font-semibold lg:text-4xl mb-8">C++ Streams</h1>
+            <div className="w-full max-w-4xl px-4">
+                {streams.length > 0 ? (
+                    streams.map((stream) => (
+                        <div key={stream.id} className="mb-4">
+                            <Link href={`/${stream.user.username}`}>
+                                <a className="text-lg font-medium hover:underline">{stream.name}</a>
+                            </Link>
+                            {/* Display other stream details here, styled similarly */}
+                        </div>
+                    ))
+                ) : (
+                    <p>No current streams under the C++ category.</p>
+                )}
+            </div>
         </div>
     );
 }
