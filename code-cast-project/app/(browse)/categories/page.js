@@ -2,7 +2,8 @@ import Link from 'next/link';
 import styles from './CategoriesPage.module.css'; 
 export default function CategoriesPage() {
   return (
-    <div className={styles.container}>
+    <div className="bg-gray-900 min-h-screen overflow-hidden px-4 mx-auto">
+      <div className={styles.container}>
       <h1 className={styles.title}>Explore Categories</h1>
       <div className={styles.categoryList}>
         <Link href="/categories/python">
@@ -30,6 +31,7 @@ export default function CategoriesPage() {
           </div>
         </Link>
       </div>
+    </div>
     </div>
   );
 }

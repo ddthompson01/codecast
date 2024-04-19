@@ -2,6 +2,7 @@ import Toggle from "./toggle";
 import CategoriesButton from "./categoriesButton";
 import HomepageButton from "./homepageButton";
 import Wrapper from "./wrapper";
+import FriendsButton from "./friendsButton";
 
 function Sidebar() {
 
@@ -10,6 +11,7 @@ function Sidebar() {
              <Toggle/>
              <HomepageButton/>
              <CategoriesButton/>
+             <FriendsButton/>
         </Wrapper>
     )
 }
