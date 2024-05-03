@@ -20,6 +20,18 @@ function Navigation() {
       label: "Stream",
       href: `/u/${user?.username}`,
       icon: Fullscreen,
+    },
+
+    {
+      label: "Keys",
+      href: `/u/${user?.username}/keys`,
+      icon: KeyRound,
+    },
+
+    {
+      label: "Community",
+      href: `/u/${user?.username}/community`,
+      icon: Users,
     }
   ];
 
@@ -38,4 +50,4 @@ function Navigation() {
   );
 };
 
-export default Navigation;
+export default Navigation; 
