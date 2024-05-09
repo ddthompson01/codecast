@@ -20,8 +20,8 @@ function Toggle() {
             {!collapsed && (
                 <div className="p-3 pl-6 mb-2 flex items-center w-full">
                     <div>
-                        SideBar
-                    </div>
+                    <img src="/logo3.svg" alt="CodeCast Logo" className="mr-4 h-12 sm:h-16"/>
+                    </div> 
                     <SideBarMessage label={label} side="right" asChild>
                         <Button 
                         onClick={onCollapse}

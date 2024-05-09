@@ -18,7 +18,7 @@ function Toggle() {
     return (
         <>
             {collapsed && (
-                <div className="hidden lg:flex w-full items-center justify-center pt-4 mb-4">
+                <div className="hidden lg:flex w-full items-center justify-center pt-3 mb-3">
                     <SideBarMessage label={label} side="right" asChild>
                         <Button 
                         onClick={onExpand}

@@ -11,6 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { toast } from 'sonner';
 
 function DashboardPage() {
   const [isLive, setIsLive] = useState(false);
@@ -46,7 +47,7 @@ function DashboardPage() {
 
     // have users select category before going live
     else if (!selectedCategory) {
-      alert('Select a category!');
+      toast.error('Select a category!');
       return;
     }
 
