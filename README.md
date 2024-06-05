@@ -57,7 +57,8 @@ In today's fast-paced technology landscape, the demand for interactive and real-
 6. Visit http://localhost:3000 in your browser.
 
 ## Usage
-Register an account on CodeCast.
-Explore different programming categories and subcategories.
-Join live coding sessions or host your own.
-Engage with the community through real-time comments, questions, likes, and follows.
+- Visit: https://codecast-mocha.vercel.app
+- Register an account on CodeCast.
+- Explore different programming categories and subcategories.
+- Join live coding sessions or host your own.
+- Engage with the community through real-time comments, questions, likes, and follows.
